@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/fairy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/enemy_manager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/normal_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/candy_manager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/bg_2.png" type="Texture" id=6]
+[ext_resource path="res://scenes/health_manager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/glitch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/game_state.gd" type="Script" id=9]
+[ext_resource path="res://music/DoorToDoor.wav" type="AudioStream" id=10]
+
+[node name="level_one" type="Node2D"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 1550.12, 701.808 )
+scale = Vector2( 36.8805, 18.2709 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="fairy" parent="." instance=ExtResource( 1 )]
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 356.54, 151.361 )
+current = true
+
+[node name="walls" parent="." instance=ExtResource( 2 )]
+
+[node name="enemy_manager" parent="." instance=ExtResource( 3 )]
+
+[node name="energy_label" type="RichTextLabel" parent="."]
+margin_left = 521.0
+margin_top = -140.0
+margin_right = 863.0
+margin_bottom = -93.0
+custom_fonts/normal_font = ExtResource( 4 )
+text = "Energy Gained: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="candy_manager" parent="." instance=ExtResource( 5 )]
+
+[node name="health_manager" parent="." instance=ExtResource( 7 )]
+
+[node name="glitch" parent="." instance=ExtResource( 8 )]
+
+[node name="game_state" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true

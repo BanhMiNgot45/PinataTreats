@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Broken.wav-31f7b53ca5ae168cccfcbc4c36d0ddc0.sample"
+
+[deps]
+
+source_file="res://music/Broken.wav"
+dest_files=[ "res://.import/Broken.wav-31f7b53ca5ae168cccfcbc4c36d0ddc0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

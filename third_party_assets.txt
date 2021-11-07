@@ -1,0 +1,3 @@
+Fonts:
+VCR OSD Mono: https://www.dafont.com/vcr-osd-mono.font
+Homicide Effect: https://www.fontspace.com/homicide-effect-font-f2377

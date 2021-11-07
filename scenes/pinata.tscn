@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/pinata.gd" type="Script" id=1]
+[ext_resource path="res://prefabs/normal_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://sprites/pinata_one.png" type="Texture" id=3]
+[ext_resource path="res://scenes/bullet_manager.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.5089, 23.2153 )
+
+[node name="pinata" type="Area2D"]
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.529726, -5.72205e-06 )
+scale = Vector2( 0.242649, 0.238511 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.05944, 1.05947 )
+shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -47.6163
+margin_top = -48.8325
+margin_right = 106.384
+margin_bottom = -7.83249
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Health: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bullet_manager" parent="." instance=ExtResource( 4 )]
+
+[connection signal="body_entered" from="." to="." method="_on_pinata_body_entered"]

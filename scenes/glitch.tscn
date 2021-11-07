@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://shaders/glitch.gdshader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/pixel = 5.0
+shader_param/red_offset = Vector2( 0, 0 )
+shader_param/green_offset = Vector2( 10, 0 )
+shader_param/blue_offset = Vector2( 10, 0 )
+shader_param/alpha = 1.0
+shader_param/rand_strength = 1.0
+shader_param/affected = Plane( 0, 0, 1, 1 )
+
+[node name="glitch" type="ColorRect"]
+visible = false
+material = SubResource( 1 )
+margin_left = -153.0
+margin_top = -147.0
+margin_right = 867.0
+margin_bottom = 448.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

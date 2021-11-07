@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/fairy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/bg_4.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/normal_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/enemy_manager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/candy_manager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/health_manager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/walls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/game_state.gd" type="Script" id=8]
+[ext_resource path="res://scenes/glitch.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/DoorToDoor.wav" type="AudioStream" id=10]
+
+[node name="level_two" type="Node2D"]
+rotation = -0.00135137
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 511.812, 302.138 )
+scale = Vector2( 8.14111, 4.85592 )
+texture = ExtResource( 2 )
+
+[node name="fairy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 110.704, 113.041 )
+max_health = 25
+
+[node name="energy_label" type="RichTextLabel" parent="."]
+margin_left = 655.0
+margin_top = 16.0
+margin_right = 995.0
+margin_bottom = 99.0
+custom_fonts/normal_font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_manager" parent="." instance=ExtResource( 4 )]
+position = Vector2( 110.704, 113.041 )
+health = 15
+
+[node name="candy_manager" parent="." instance=ExtResource( 5 )]
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 509.189, 300.03 )
+current = true
+
+[node name="health_manager" parent="." instance=ExtResource( 6 )]
+interval = 14
+
+[node name="walls" parent="." instance=ExtResource( 7 )]
+position = Vector2( 149.469, 149.873 )
+
+[node name="game_state" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="glitch" parent="." instance=ExtResource( 9 )]
+margin_left = 1.39764
+margin_top = 0.670578
+margin_right = 1021.4
+margin_bottom = 595.671
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+pitch_scale = 0.48
+autoplay = true
